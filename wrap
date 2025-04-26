@@ -1,0 +1,93 @@
+local ScreenGui = Instance.new("ScreenGui")
+local ToggleButton = Instance.new("TextButton")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local FunctionList = Instance.new("Frame")
+local TeleportButton = Instance.new("TextButton")
+local CloseButton = Instance.new("TextButton")
+local CurrentSection = Instance.new("Frame")
+local TeleportFrame = Instance.new("Frame")
+local IslandOption1 = Instance.new("TextButton")
+local IslandOption2 = Instance.new("TextButton")
+-- Set properties of ScreenGui
+ScreenGui.Parent = game.CoreGui
+-- Set properties of ToggleButton
+ToggleButton.Parent = ScreenGui
+ToggleButton.Size = UDim2.new(0, 100, 0, 50)
+ToggleButton.Position = UDim2.new(0, 10, 0, 10)
+ToggleButton.Text = "Toggle"
+ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+-- Set properties of MainFrame (the GUI window)
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.Size = UDim2.new(0, 400, 0, 300)
+MainFrame.Position = UDim2.new(0.5, -200, 0.5, -150)
+MainFrame.Visible = false
+-- Set properties of Title
+Title.Parent = MainFrame
+Title.BackgroundTransparency = 1
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.Text = "Bubble Gum Simulator Infinity"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+-- Set properties for FunctionList
+FunctionList.Parent = MainFrame
+FunctionList.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FunctionList.Size = UDim2.new(0, 100, 1, 0)
+-- Set properties for TeleportButton
+TeleportButton.Parent = FunctionList
+TeleportButton.Size = UDim2.new(1, 0, 0, 50)
+TeleportButton.Text = "Teleport"
+TeleportButton.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
+-- Set properties for CloseButton
+CloseButton.Parent = MainFrame
+CloseButton.Size = UDim2.new(0, 100, 0, 50)
+CloseButton.Position = UDim2.new(0.5, 0, 0, 0)
+CloseButton.Text = "Close"
+CloseButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+-- Set properties for CurrentSection
+CurrentSection.Parent = MainFrame
+CurrentSection.BackgroundTransparency = 1
+CurrentSection.Position = UDim2.new(0.25, 0, 0, 0)
+CurrentSection.Size = UDim2.new(0.75, 0, 1, 0)
+-- Set properties for TeleportFrame
+TeleportFrame.Parent = CurrentSection
+TeleportFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TeleportFrame.Size = UDim2.new(1, 0, 1, 0)
+TeleportFrame.Visible = false
+-- Island options
+IslandOption1.Parent = TeleportFrame
+IslandOption1.Size = UDim2.new(1, 0, 0, 50)
+IslandOption1.Text = "Teleport to Island 1"
+IslandOption1.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+IslandOption2.Parent = TeleportFrame
+IslandOption2.Size = UDim2.new(1, 0, 0, 50)
+IslandOption2.Position = UDim2.new(0, 0, 0.2, 0)
+IslandOption2.Text = "Teleport to Island 2"
+IslandOption2.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+-- Toggle the GUI
+ToggleButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = not MainFrame.Visible
+end)
+-- Open Teleport Section
+TeleportButton.MouseButton1Click:Connect(function()
+    TeleportFrame.Visible = true
+end)
+-- Close the GUI
+CloseButton.MouseButton1Click:Connect(function()
+    MainFrame.Visible = false
+end)
+-- Add Teleport Functionality
+IslandOption1.MouseButton1Click:Connect(function()
+    print("Teleporting to Island 1...")
+    -- Add teleport logic here
+end)
+IslandOption2.MouseButton1Click:Connect(function()
+    print("Teleporting to Island 2...")
+    -- Add teleport logic here
+end)
+-- Allow moving the GUI
+MainFrame.MouseDrag:Connect(function(x, y)
+    MainFrame.Position = UDim2.new(MainFrame.Position.X.Scale, MainFrame.Position.X.Offset + x, MainFrame.Position.Y.Scale, MainFrame.Position.Y.Offset + y)
+end)
