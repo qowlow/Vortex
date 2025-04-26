@@ -1,0 +1,39 @@
+-- Create the toggle button
+local toggleButton = Instance.new("TextButton")
+toggleButton.Name = "Toggle"
+toggleButton.Text = "Toggle"
+toggleButton.Size = UDim2.new(0, 100, 0, 30)
+toggleButton.BackgroundTransparency = 0
+toggleButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+toggleButton.Position = UDim2.new(0, 100, 0, 100)
+toggleButton.Parent = game.CoreGui
+-- Create the GUI window
+local guiWindow = Instance.new("Frame")
+guiWindow.Name = "GUIWindow"
+guiWindow.Size = UDim2.new(0, 400, 0, 300)
+guiWindow.BackgroundTransparency = 0
+guiWindow.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+guiWindow.Position = UDim2.new(0, 100, 0, 100)
+guiWindow.Visible = false
+guiWindow.Parent = game.CoreGui
+-- Create a button to test the GUI
+local testButton = Instance.new("TextButton")
+testButton.Name = "TestButton"
+testButton.Text = "Test"
+testButton.Size = UDim2.new(0, 100, 0, 30)
+testButton.BackgroundTransparency = 0
+testButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+testButton.Position = UDim2.new(0, 150, 0, 100)
+testButton.Parent = guiWindow
+-- Toggle button functionality
+toggleButton.MouseButton1Click:Connect(function()
+    if guiWindow.Visible then
+        guiWindow.Visible = false
+    else
+        guiWindow.Visible = true
+    end
+end)
+-- Test button functionality
+testButton.MouseButton1Click:Connect(function()
+    print("Test button clicked!")
+end)
