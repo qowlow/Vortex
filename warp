@@ -1,0 +1,19 @@
+-- Vortex Script
+local Vortex = {}
+Vortex.Key = "VORTEXKEY123"
+Vortex.Loaded = false
+local function VerifyKey()
+    local Input = game:GetService("UserInputService"):WaitForUserInputEnum()
+    if Input == Vortex.Key then
+        Vortex.Loaded = true
+        -- Load Vortex script here
+        game.StarterGui:SetBackgroundTransparency(1)
+        localScreenGui = Instance.new("ScreenGui")
+        localScreenGui.Name = "Vortex"
+        localScreenGui.Parent = game.StarterGui
+        -- Add your script features here
+    else
+        game:GetService("Players").LocalPlayer:Kick("Invalid key")
+    end
+end
+VerifyKey()
