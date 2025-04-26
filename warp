@@ -1,19 +1,134 @@
 -- Vortex Script
 local Vortex = {}
-Vortex.Key = "VORTEXKEY123"
-Vortex.Loaded = false
-local function VerifyKey()
-    local Input = game:GetService("UserInputService"):WaitForUserInputEnum()
-    if Input == Vortex.Key then
-        Vortex.Loaded = true
-        -- Load Vortex script here
-        game.StarterGui:SetBackgroundTransparency(1)
-        localScreenGui = Instance.new("ScreenGui")
-        localScreenGui.Name = "Vortex"
-        localScreenGui.Parent = game.StarterGui
-        -- Add your script features here
+Vortex.Version = "1.0"
+Vortex.Author = "Vortex Team"
+-- Load libraries
+local http = game:GetService("HttpService")
+local gui = game:GetService("GuiService")
+local players = game:GetService("Players")
+-- Create GUI
+local player = players.LocalPlayer
+local guiFolder = Instance.new("Folder")
+guiFolder.Name = "Vortex GUI"
+guiFolder.Parent = player.PlayerGui
+local mainGui = Instance.new("ScreenGui")
+mainGui.Name = "Main GUI"
+mainGui.Parent = guiFolder
+local background = Instance.new("Frame")
+background.Name = "Background"
+background.Size = UDim2.new(0, 300, 0, 200)
+background.BackgroundTransparency = 0.5
+background.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+background.Parent = mainGui
+local title = Instance.new("TextLabel")
+title.Name = "Title"
+title.Text = "Vortex Script"
+title.TextSize = 24
+title.Font = Enum.Font.SourceSansSemibold
+title.BackgroundTransparency = 1
+title.TextColor3 = Color3.new(1, 1, 1)
+title.Parent = background
+-- Create buttons
+local buttonFolder = Instance.new("Folder")
+buttonFolder.Name = "Buttons"
+buttonFolder.Parent = background
+local autoCollectChestsButton = Instance.new("TextButton")
+autoCollectChestsButton.Name = "Auto Collect Chests Button"
+autoCollectChestsButton.Text = "Auto Collect Chests"
+autoCollectChestsButton.Size = UDim2.new(0, 150, 0, 25)
+autoCollectChestsButton.BackgroundTransparency = 0.5
+autoCollectChestsButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+autoCollectChestsButton.Parent = buttonFolder
+local autoGoldenEggButton = Instance.new("TextButton")
+autoGoldenEggButton.Name = "Auto Golden Egg Button"
+autoGoldenEggButton.Text = "Auto Golden Egg"
+autoGoldenEggButton.Size = UDim2.new(0, 150, 0, 25)
+autoGoldenEggButton.BackgroundTransparency = 0.5
+autoGoldenEggButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+autoGoldenEggButton.Parent = buttonFolder
+local unlockAllIslandsButton = Instance.new("TextButton")
+unlockAllIslandsButton.Name = "Unlock All Islands Button"
+unlockAllIslandsButton.Text = "Unlock All Islands"
+unlockAllIslandsButton.Size = UDim2.new(0, 150, 0, 25)
+unlockAllIslandsButton.BackgroundTransparency = 0.5
+unlockAllIslandsButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+unlockAllIslandsButton.Parent = buttonFolder
+local autoBuyAlienShopButton = Instance.new("TextButton")
+autoBuyAlienShopButton.Name = "Auto Buy Alien Shop Button"
+autoBuyAlienShopButton.Text = "Auto Buy Alien Shop"
+autoBuyAlienShopButton.Size = UDim2.new(0, 150, 0, 25)
+autoBuyAlienShopButton.BackgroundTransparency = 0.5
+autoBuyAlienShopButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+autoBuyAlienShopButton.Parent = buttonFolder
+local eggHatcherButton = Instance.new("TextButton")
+eggHatcherButton.Name = "Egg Hatcher Button"
+eggHatcherButton.Text = "Egg Hatcher"
+eggHatcherButton.Size = UDim2.new(0, 150, 0, 25)
+eggHatcherButton.BackgroundTransparency = 0.5
+eggHatcherButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+eggHatcherButton.Parent = buttonFolder
+local autoCoinGemButton = Instance.new("TextButton")
+autoCoinGemButton.Name = "Auto Coin/Gem Button"
+autoCoinGemButton.Text = "Auto Coin/Gem"
+autoCoinGemButton.Size = UDim2.new(0, 150, 0, 25)
+autoCoinGemButton.BackgroundTransparency = 0.5
+autoCoinGemButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+autoCoinGemButton.Parent = buttonFolder
+-- Create key system
+local key = "VORTEXKEY123"
+local function checkKey()
+    local userInput = game:GetService("UserInputService"):WaitForUserInputEnum()
+    if userInput == key then
+        print("Key accepted")
     else
-        game:GetService("Players").LocalPlayer:Kick("Invalid key")
+        print("Invalid key")
     end
 end
-VerifyKey()
+-- Auto Collect Chests
+autoCollectChestsButton.MouseButton1Click:Connect(function()
+    checkKey()
+    if key == "VORTEXKEY123" then
+        -- Code to auto collect chests
+        print("Auto collecting chests...")
+    end
+end)
+-- Auto Golden Egg
+autoGoldenEggButton.MouseButton1Click:Connect(function()
+    checkKey()
+    if key == "VORTEXKEY123" then
+        -- Code to auto collect golden eggs
+        print("Auto collecting golden eggs...")
+    end
+end)
+-- Unlock All Islands
+unlockAllIslandsButton.MouseButton1Click:Connect(function()
+    checkKey()
+    if key == "VORTEXKEY123" then
+        -- Code to unlock all islands
+        print("Unlocking all islands...")
+    end
+end)
+-- Auto Buy Alien Shop
+autoBuyAlienShopButton.MouseButton1Click:Connect(function()
+    checkKey()
+    if key == "VORTEXKEY123" then
+        -- Code to auto buy alien shop
+        print("Auto buying alien shop...")
+    end
+end)
+-- Egg Hatcher
+eggHatcherButton.MouseButton1Click:Connect(function()
+    checkKey()
+    if key == "VORTEXKEY123" then
+        -- Code to hatch eggs
+        print("Hatching eggs...")
+    end
+end)
+-- Auto Coin/Gem
+autoCoinGemButton.MouseButton1Click:Connect(function()
+    checkKey()
+    if key == "VORTEXKEY123" then
+        -- Code to auto collect coin/gem
+        print("Auto collecting coin/gem...")
+    end
+end)
