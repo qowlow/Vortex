@@ -1,150 +1,104 @@
--- // Premium VORTEX WRAP for Bubble Gum Simulator Infinity
--- // Built with Rayfield UI Library
--- // Safe, Clean, Professional UI
+-- Vortex BGS Infinity Script
+-- Version 1.3
+-- [!] Replace game-specific IDs with current values
 
--- Load Rayfield Library
-local Rayfield = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Rayfield/main/source.lua"))()
+local Raymon = loadstring(game:HttpGet("https://raw.githubusercontent.com/RaymonLui/Raymon/main/RaymonLibV1"))()
+local VirtualUser = game:GetService("VirtualUser")
 
--- Create Window
-local Window = Rayfield:CreateWindow({
-    Name = "VORTEX | Bubble Gum Infinity",
-    LoadingTitle = "VORTEX WRAP",
-    LoadingSubtitle = "by MateoDev2024",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = "VortexWrap", -- Create a folder to save config
-        FileName = "VortexSettings"
-    },
-    Discord = {
-        Enabled = false, -- true if you want to link Discord
-        Invite = "",
-        RememberJoins = false
-    },
-    KeySystem = false, -- if you want a key system later
+-- GUI Setup
+local Vortex = Raymon:CreateWindow({
+    WindowName = "Vortex BGS Infinity",
+    Color = Color3.fromRGB(255, 85, 127),
+    Size = UDim2.new(0, 500, 0, 400)
 })
 
 -- Main Tabs
-local AutoFarmTab = Window:CreateTab("🏭 AutoFarm", nil)
-local MiscTab = Window:CreateTab("🛠️ Misc", nil)
-local SettingsTab = Window:CreateTab("⚙️ Settings", nil)
+local AutoTab = Vortex:CreateTab("Auto Farm")
+local EggTab = Vortex:CreateTab("Egg Hatching")
+local MiscTab = Vortex:CreateTab("Misc")
 
--- Variables
-local autoBlow = false
-local autoSell = false
-local autoHatch = false
-
--- AutoFarm Section
-local AutoFarmSection = AutoFarmTab:CreateSection("Main AutoFarm")
-
-Rayfield:CreateToggle({
-    Name = "Auto Blow Bubble",
-    CurrentValue = false,
-    Flag = "AutoBlow",
-    SectionParent = AutoFarmSection,
-    Callback = function(Value)
-        autoBlow = Value
-    end,
-})
-
-Rayfield:CreateToggle({
-    Name = "Auto Sell Bubble",
-    CurrentValue = false,
-    Flag = "AutoSell",
-    SectionParent = AutoFarmSection,
-    Callback = function(Value)
-        autoSell = Value
-    end,
-})
-
-Rayfield:CreateToggle({
-    Name = "Auto Hatch Egg",
-    CurrentValue = false,
-    Flag = "AutoHatch",
-    SectionParent = AutoFarmSection,
-    Callback = function(Value)
-        autoHatch = Value
-    end,
-})
-
--- Functions
-task.spawn(function()
-    while task.wait(0.2) do
-        if autoBlow then
-            pcall(function()
-                game:GetService("ReplicatedStorage").Events.BubbleEvent:FireServer("BlowBubble")
-            end)
-        end
+-- Auto Farm Section
+local AutoFarmSection = AutoTab:CreateSection("Farming Options")
+local FarmToggle = AutoFarmSection:AddToggle("Auto Farm Bubbles", false, function(State)
+    _G.AutoFarm = State
+    while _G.AutoFarm and task.wait() do
+        game:GetService("ReplicatedStorage").RemoteEvents.BubbleClicked:FireServer()
     end
 end)
 
-task.spawn(function()
-    while task.wait(1.5) do
-        if autoSell then
-            pcall(function()
-                game:GetService("ReplicatedStorage").Events.BubbleEvent:FireServer("SellBubble")
-            end)
-        end
+local CollectToggle = AutoFarmSection:AddToggle("Auto Collect Drops", false, function(State)
+    _G.AutoCollect = State
+    while _G.AutoCollect and task.wait(0.5) do
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.DropFolder, 0)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.DropFolder, 1)
     end
 end)
 
-task.spawn(function()
-    while task.wait(3) do
-        if autoHatch then
-            pcall(function()
-                game:GetService("ReplicatedStorage").Functions.Eggs.Hatch:InvokeServer("CommonEgg", 1)
-            end)
-        end
+local SellToggle = AutoFarmSection:AddToggle("Auto Sell Inventory", false, function(State)
+    _G.AutoSell = State
+    while _G.AutoSell and task.wait(5) do
+        game:GetService("ReplicatedStorage").RemoteEvents.SellAll:FireServer()
     end
 end)
 
--- Misc Tab
-local MiscSection = MiscTab:CreateSection("Miscellaneous")
+-- Egg Hatching Section
+local EggSection = EggTab:CreateSection("Hatching Options")
+local EggList = {
+    "Basic Egg - 1M",
+    "Golden Egg - 50M",
+    "Rainbow Egg - 500M"
+}
 
-Rayfield:CreateButton({
-    Name = "Redeem All Codes",
-    Callback = function()
-        -- Example Redeem All Codes
-        pcall(function()
-            local Codes = {"FREE", "RELEASE", "UPDATE1"}
-            for _, code in pairs(Codes) do
-                game:GetService("ReplicatedStorage").Functions.RedeemCode:InvokeServer(code)
-                task.wait(0.5)
-            end
-        end)
-    end,
+local SelectedEgg = EggSection:AddDropdown("Select Egg", EggList, function(Option)
+    _G.SelectedEgg = Option
+end)
+
+local HatchToggle = EggSection:AddToggle("Auto Hatch", false, function(State)
+    _G.AutoHatch = State
+    while _G.AutoHatch and task.wait() do
+        game:GetService("ReplicatedStorage").RemoteEvents.PurchaseEgg:FireServer(_G.SelectedEgg)
+    end
+end)
+
+-- Misc Section
+local MiscSection = MiscTab:CreateSection("Utilities")
+local AFKToggle = MiscSection:AddToggle("Anti-AFK", false, function(State)
+    _G.AntiAFK = State
+    while _G.AntiAFK and task.wait(30) do
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+    end
+end)
+
+local BoostSlider = MiscSection:AddSlider("Game Speed Multiplier", 1, 10, 1, function(Value)
+    game:GetService("ReplicatedStorage").Boost.Value = Value
+end)
+
+-- Status Display
+local StatusSection = Vortex:CreateStatus({
+    Title = "Vortex Status",
+    Content = {
+        "Auto Farming: Off",
+        "Egg Hatching: Off",
+        "Bubbles Popped: 0",
+        "Current Multiplier: 1x"
+    }
 })
 
--- Settings Tab
-local SettingsSection = SettingsTab:CreateSection("Other Settings")
+-- Auto-Update Status
+spawn(function()
+    while task.wait(1) do
+        StatusSection:SetStatus({
+            "Auto Farming: " .. (_G.AutoFarm and "On" or "Off"),
+            "Egg Hatching: " .. (_G.AutoHatch and "On" or "Off"),
+            "Bubbles Popped: " .. game:GetService("Players").LocalPlayer.leaderstats.Bubbles.Value,
+            "Current Multiplier: " .. game:GetService("ReplicatedStorage").Multiplier.Value .. "x"
+        })
+    end
+end)
 
-Rayfield:CreateToggle({
-    Name = "Anti-AFK",
-    CurrentValue = true,
-    Flag = "AntiAFK",
-    SectionParent = SettingsSection,
-    Callback = function(Value)
-        if Value then
-            game:GetService("Players").LocalPlayer.Idled:Connect(function()
-                local VirtualUser = game:GetService("VirtualUser")
-                VirtualUser:Button2Down(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
-                task.wait(1)
-                VirtualUser:Button2Up(Vector2.new(0,0), workspace.CurrentCamera.CFrame)
-            end)
-        end
-    end,
-})
-
-Rayfield:Notify({
-    Title = "VORTEX WRAP Loaded!",
-    Content = "Bubble Gum Infinity script loaded successfully ✅",
-    Duration = 6,
-    Image = nil,
-    Actions = {
-        Ignore = {
-            Name = "ok",
-            Callback = function()
-                print("User closed notification")
-            end,
-        },
-    },
+Raymon:Notify({
+    Title = "Vortex Loaded",
+    Description = "Successfully injected Vortex BGS Infinity!",
+    Duration = 5
 })
