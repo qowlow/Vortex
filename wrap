@@ -1,0 +1,300 @@
+-- Create the toggle button
+local toggleButton = Instance.new("TextButton")
+toggleButton.Name = "Toggle"
+toggleButton.Text = "Toggle"
+toggleButton.Size = UDim2.new(0, 100, 0, 30)
+toggleButton.BackgroundTransparency = 0
+toggleButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+toggleButton.Position = UDim2.new(0, 100, 0, 100)
+toggleButton.Parent = game.CoreGui
+-- Create the GUI window
+local guiWindow = Instance.new("Frame")
+guiWindow.Name = "GUIWindow"
+guiWindow.Size = UDim2.new(0, 400, 0, 300)
+guiWindow.BackgroundTransparency = 0
+guiWindow.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+guiWindow.Position = UDim2.new(0, 100, 0, 100)
+guiWindow.Visible = false
+guiWindow.Parent = game.CoreGui
+-- Create the function buttons
+local functionButtonFrame = Instance.new("Frame")
+functionButtonFrame.Name = "FunctionButtonFrame"
+functionButtonFrame.Size = UDim2.new(0, 150, 0, 300)
+functionButtonFrame.BackgroundTransparency = 1
+functionButtonFrame.Position = UDim2.new(0, 0, 0, 0)
+functionButtonFrame.Parent = guiWindow
+local teleportButton = Instance.new("TextButton")
+teleportButton.Name = "TeleportButton"
+teleportButton.Text = "Teleport"
+teleportButton.Size = UDim2.new(0, 150, 0, 30)
+teleportButton.BackgroundTransparency = 0
+teleportButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+teleportButton.Position = UDim2.new(0, 0, 0, 10)
+teleportButton.Parent = functionButtonFrame
+local farmCoinsButton = Instance.new("TextButton")
+farmCoinsButton.Name = "FarmCoinsButton"
+farmCoinsButton.Text = "Farm Coins"
+farmCoinsButton.Size = UDim2.new(0, 150, 0, 30)
+farmCoinsButton.BackgroundTransparency = 0
+farmCoinsButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+farmCoinsButton.Position = UDim2.new(0, 0, 0, 50)
+farmCoinsButton.Parent = functionButtonFrame
+local farmGemsButton = Instance.new("TextButton")
+farmGemsButton.Name = "FarmGemsButton"
+farmGemsButton.Text = "Farm Gems"
+farmGemsButton.Size = UDim2.new(0, 150, 0, 30)
+farmGemsButton.BackgroundTransparency = 0
+farmGemsButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+farmGemsButton.Position = UDim2.new(0, 0, 0, 90)
+farmGemsButton.Parent = functionButtonFrame
+local autoBlowBubbleButton = Instance.new("TextButton")
+autoBlowBubbleButton.Name = "AutoBlowBubbleButton"
+autoBlowBubbleButton.Text = "Auto Blow Bubble"
+autoBlowBubbleButton.Size = UDim2.new(0, 150, 0, 30)
+autoBlowBubbleButton.BackgroundTransparency = 0
+autoBlowBubbleButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoBlowBubbleButton.Position = UDim2.new(0, 0, 0, 130)
+autoBlowBubbleButton.Parent = functionButtonFrame
+local autoSellBubbleButton = Instance.new("TextButton")
+autoSellBubbleButton.Name = "AutoSellBubbleButton"
+autoSellBubbleButton.Text = "Auto Sell Bubble"
+autoSellBubbleButton.Size = UDim2.new(0, 150, 0, 30)
+autoSellBubbleButton.BackgroundTransparency = 0
+autoSellBubbleButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoSellBubbleButton.Position = UDim2.new(0, 0, 0, 170)
+autoSellBubbleButton.Parent = functionButtonFrame
+local autoUsePointsButton = Instance.new("TextButton")
+autoUsePointsButton.Name = "AutoUsePointsButton"
+autoUsePointsButton.Text = "Auto Use Points"
+autoUsePointsButton.Size = UDim2.new(0, 150, 0, 30)
+autoUsePointsButton.BackgroundTransparency = 0
+autoUsePointsButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoUsePointsButton.Position = UDim2.new(0, 0, 0, 210)
+autoUsePointsButton.Parent = functionButtonFrame
+-- Create the teleport section
+local teleportSection = Instance.new("Frame")
+teleportSection.Name = "TeleportSection"
+teleportSection.Size = UDim2.new(0, 250, 0, 300)
+teleportSection.BackgroundTransparency = 1
+teleportSection.Position = UDim2.new(0, 150, 0, 0)
+teleportSection.Visible = false
+teleportSection.Parent = guiWindow
+local island1Button = Instance.new("TextButton")
+island1Button.Name = "Island1Button"
+island1Button.Text = "Island 1"
+island1Button.Size = UDim2.new(0, 100, 0, 30)
+island1Button.BackgroundTransparency = 0
+island1Button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+island1Button.Position = UDim2.new(0, 0, 0, 10)
+island1Button.Parent = teleportSection
+local island2Button = Instance.new("TextButton")
+island2Button.Name = "Island2Button"
+island2Button.Text = "Island 2"
+island2Button.Size = UDim2.new(0, 100, 0, 30)
+island2Button.BackgroundTransparency = 0
+island2Button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+island2Button.Position = UDim2.new(0, 0, 0, 50)
+island2Button.Parent = teleportSection
+local island3Button = Instance.new("TextButton")
+island3Button.Name = "Island3Button"
+island3Button.Text = "Island 3"
+island3Button.Size = UDim2.new(0, 100, 0, 30)
+island3Button.BackgroundTransparency = 0
+island3Button.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+island3Button.Position = UDim2.new(0, 0, 0, 90)
+island3Button.Parent = teleportSection
+-- Create the farm coins section
+local farmCoinsSection = Instance.new("Frame")
+farmCoinsSection.Name = "FarmCoinsSection"
+farmCoinsSection.Size = UDim2.new(0, 250, 0, 300)
+farmCoinsSection.BackgroundTransparency = 1
+farmCoinsSection.Position = UDim2.new(0, 150, 0, 0)
+farmCoinsSection.Visible = false
+farmCoinsSection.Parent = guiWindow
+local farmCoinsEnabledButton = Instance.new("TextButton")
+farmCoinsEnabledButton.Name = "FarmCoinsEnabledButton"
+farmCoinsEnabledButton.Text = "Enabled"
+farmCoinsEnabledButton.Size = UDim2.new(0, 100, 0, 30)
+farmCoinsEnabledButton.BackgroundTransparency = 0
+farmCoinsEnabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+farmCoinsEnabledButton.Position = UDim2.new(0, 0, 0, 10)
+farmCoinsEnabledButton.Parent = farmCoinsSection
+local farmCoinsDisabledButton = Instance.new("TextButton")
+farmCoinsDisabledButton.Name = "FarmCoinsDisabledButton"
+farmCoinsDisabledButton.Text = "Disabled"
+farmCoinsDisabledButton.Size = UDim2.new(0, 100, 0, 30)
+farmCoinsDisabledButton.BackgroundTransparency = 0
+farmCoinsDisabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+farmCoinsDisabledButton.Position = UDim2.new(0, 0, 0, 50)
+farmCoinsDisabledButton.Parent = farmCoinsSection
+-- Create the farm gems section
+local farmGemsSection = Instance.new("Frame")
+farmGemsSection.Name = "FarmGemsSection"
+farmGemsSection.Size = UDim2.new(0, 250, 0, 300)
+farmGemsSection.BackgroundTransparency = 1
+farmGemsSection.Position = UDim2.new(0, 150, 0, 0)
+farmGemsSection.Visible = false
+farmGemsSection.Parent = guiWindow
+local farmGemsEnabledButton = Instance.new("TextButton")
+farmGemsEnabledButton.Name = "FarmGemsEnabledButton"
+farmGemsEnabledButton.Text = "Enabled"
+farmGemsEnabledButton.Size = UDim2.new(0, 100, 0, 30)
+farmGemsEnabledButton.BackgroundTransparency = 0
+farmGemsEnabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+farmGemsEnabledButton.Position = UDim2.new(0, 0, 0, 10)
+farmGemsEnabledButton.Parent = farmGemsSection
+local farmGemsDisabledButton = Instance.new("TextButton")
+farmGemsDisabledButton.Name = "FarmGemsDisabledButton"
+farmGemsDisabledButton.Text = "Disabled"
+farmGemsDisabledButton.Size = UDim2.new(0, 100, 0, 30)
+farmGemsDisabledButton.BackgroundTransparency = 0
+farmGemsDisabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+farmGemsDisabledButton.Position = UDim2.new(0, 0, 0, 50)
+farmGemsDisabledButton.Parent = farmGemsSection
+-- Create the auto blow bubble section
+local autoBlowBubbleSection = Instance.new("Frame")
+autoBlowBubbleSection.Name = "AutoBlowBubbleSection"
+autoBlowBubbleSection.Size = UDim2.new(0, 250, 0, 300)
+autoBlowBubbleSection.BackgroundTransparency = 1
+autoBlowBubbleSection.Position = UDim2.new(0, 150, 0, 0)
+autoBlowBubbleSection.Visible = false
+autoBlowBubbleSection.Parent = guiWindow
+local autoBlowBubbleEnabledButton = Instance.new("TextButton")
+autoBlowBubbleEnabledButton.Name = "AutoBlowBubbleEnabledButton"
+autoBlowBubbleEnabledButton.Text = "Enabled"
+autoBlowBubbleEnabledButton.Size = UDim2.new(0, 100, 0, 30)
+autoBlowBubbleEnabledButton.BackgroundTransparency = 0
+autoBlowBubbleEnabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoBlowBubbleEnabledButton.Position = UDim2.new(0, 0, 0, 10)
+autoBlowBubbleEnabledButton.Parent = autoBlowBubbleSection
+local autoBlowBubbleDisabledButton = Instance.new("TextButton")
+autoBlowBubbleDisabledButton.Name = "AutoBlowBubbleDisabledButton"
+autoBlowBubbleDisabledButton.Text = "Disabled"
+autoBlowBubbleDisabledButton.Size = UDim2.new(0, 100, 0, 30)
+autoBlowBubbleDisabledButton.BackgroundTransparency = 0
+autoBlowBubbleDisabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoBlowBubbleDisabledButton.Position = UDim2.new(0, 0, 0, 50)
+autoBlowBubbleDisabledButton.Parent = autoBlowBubbleSection
+-- Create the auto sell bubble section
+local autoSellBubbleSection = Instance.new("Frame")
+autoSellBubbleSection.Name = "AutoSellBubbleSection"
+autoSellBubbleSection.Size = UDim2.new(0, 250, 0, 300)
+autoSellBubbleSection.BackgroundTransparency = 1
+autoSellBubbleSection.Position = UDim2.new(0, 150, 0, 0)
+autoSellBubbleSection.Visible = false
+autoSellBubbleSection.Parent = guiWindow
+local autoSellBubbleEnabledButton = Instance.new("TextButton")
+autoSellBubbleEnabledButton.Name = "AutoSellBubbleEnabledButton"
+autoSellBubbleEnabledButton.Text = "Enabled"
+autoSellBubbleEnabledButton.Size = UDim2.new(0, 100, 0, 30)
+autoSellBubbleEnabledButton.BackgroundTransparency = 0
+autoSellBubbleEnabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoSellBubbleEnabledButton.Position = UDim2.new(0, 0, 0, 10)
+autoSellBubbleEnabledButton.Parent = autoSellBubbleSection
+local autoSellBubbleDisabledButton = Instance.new("TextButton")
+autoSellBubbleDisabledButton.Name = "AutoSellBubbleDisabledButton"
+autoSellBubbleDisabledButton.Text = "Disabled"
+autoSellBubbleDisabledButton.Size = UDim2.new(0, 100, 0, 30)
+autoSellBubbleDisabledButton.BackgroundTransparency = 0
+autoSellBubbleDisabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoSellBubbleDisabledButton.Position = UDim2.new(0, 0, 0, 50)
+autoSellBubbleDisabledButton.Parent = autoSellBubbleSection
+-- Create the auto use points section
+local autoUsePointsSection = Instance.new("Frame")
+autoUsePointsSection.Name = "AutoUsePointsSection"
+autoUsePointsSection.Size = UDim2.new(0, 250, 0, 300)
+autoUsePointsSection.BackgroundTransparency = 1
+autoUsePointsSection.Position = UDim2.new(0, 150, 0, 0)
+autoUsePointsSection.Visible = false
+autoUsePointsSection.Parent = guiWindow
+local autoUsePointsEnabledButton = Instance.new("TextButton")
+autoUsePointsEnabledButton.Name = "AutoUsePointsEnabledButton"
+autoUsePointsEnabledButton.Text = "Enabled"
+autoUsePointsEnabledButton.Size = UDim2.new(0, 100, 0, 30)
+autoUsePointsEnabledButton.BackgroundTransparency = 0
+autoUsePointsEnabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoUsePointsEnabledButton.Position = UDim2.new(0, 0, 0, 10)
+autoUsePointsEnabledButton.Parent = autoUsePointsSection
+local autoUsePointsDisabledButton = Instance.new("TextButton")
+autoUsePointsDisabledButton.Name = "AutoUsePointsDisabledButton"
+autoUsePointsDisabledButton.Text = "Disabled"
+autoUsePointsDisabledButton.Size = UDim2.new(0, 100, 0, 30)
+autoUsePointsDisabledButton.BackgroundTransparency = 0
+autoUsePointsDisabledButton.BackgroundColor3 = Color3.new(0.3, 0.3, 0.3)
+autoUsePointsDisabledButton.Position = UDim2.new(0, 0, 0, 50)
+autoUsePointsDisabledButton.Parent = autoUsePointsSection
+-- Toggle button functionality
+toggleButton.MouseButton1Click:Connect(function()
+    if guiWindow.Visible then
+        guiWindow.Visible = false
+    else
+        guiWindow.Visible = true
+    end
+end)
+-- Teleport button functionality
+teleportButton.MouseButton1Click:Connect(function()
+    teleportSection.Visible = true
+    farmCoinsSection.Visible = false
+    farmGemsSection.Visible = false
+    autoBlowBubbleSection.Visible = false
+    autoSellBubbleSection.Visible = false
+    autoUsePointsSection.Visible = false
+end)
+-- Island button functionality
+island1Button.MouseButton1Click:Connect(function()
+    -- Add teleportation code here
+    print("Teleporting to Island 1...")
+end)
+island2Button.MouseButton1Click:Connect(function()
+    -- Add teleportation code here
+    print("Teleporting to Island 2...")
+end)
+island3Button.MouseButton1Click:Connect(function()
+    -- Add teleportation code here
+    print("Teleporting to Island 3...")
+end)
+-- Farm coins button functionality
+farmCoinsButton.MouseButton1Click:Connect(function()
+    farmCoinsSection.Visible = true
+    teleportSection.Visible = false
+    farmGemsSection.Visible = false
+    autoBlowBubbleSection.Visible = false
+    autoSellBubbleSection.Visible = false
+    autoUsePointsSection.Visible = false
+end)
+-- Farm gems button functionality
+farmGemsButton.MouseButton1Click:Connect(function()
+    farmGemsSection.Visible = true
+    farmCoinsSection.Visible = false
+    teleportSection.Visible = false
+    autoBlowBubbleSection.Visible = false
+    autoSellBubbleSection.Visible = false
+    autoUsePointsSection.Visible = false
+end)
+-- Auto blow bubble button functionality
+autoBlowBubbleButton.MouseButton1Click:Connect(function()
+    autoBlowBubbleSection.Visible = true
+    farmCoinsSection.Visible = false
+    farmGemsSection.Visible = false
+    teleportSection.Visible = false
+    autoSellBubbleSection.Visible = false
+    autoUsePointsSection.Visible = false
+end)
+-- Auto sell bubble button functionality
+autoSellBubbleButton.MouseButton1Click:Connect(function()
+    autoSellBubbleSection.Visible = true
+    farmCoinsSection.Visible = false
+    farmGemsSection.Visible = false
+    teleportSection.Visible = false
+    autoBlowBubbleSection.Visible = false
+    autoUsePointsSection.Visible = false
+end)
+-- Auto use points button functionality
+autoUsePointsButton.MouseButton1Click:Connect(function()
+    autoUsePointsSection.Visible = true
+    farmCoinsSection.Visible = false
+    farmGemsSection.Visible = false
+    teleportSection.Visible = false
+    autoBlowBubbleSection.Visible = false
+    autoSellBubbleSection.Visible = false
+end)
