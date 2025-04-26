@@ -14,38 +14,50 @@ local IslandOption2 = Instance.new("TextButton")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 -- Set properties of ToggleButton
 ToggleButton.Parent = ScreenGui
-ToggleButton.Size = UDim2.new(0, 100, 0, 50)
+ToggleButton.Size = UDim2.new(0, 120, 0, 50)
 ToggleButton.Position = UDim2.new(0, 10, 0, 10)
 ToggleButton.Text = "Toggle"
 ToggleButton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+ToggleButton.Font = Enum.Font.GothamBold
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.BorderSizePixel = 3
+ToggleButton.BorderColor3 = Color3.fromRGB(0, 100, 200)
 -- Set properties of MainFrame (the GUI window)
 MainFrame.Parent = ScreenGui
-MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 MainFrame.Size = UDim2.new(0, 400, 0, 300)
 MainFrame.Position = UDim2.new(0.5, -200, 0.5, -150)
 MainFrame.Visible = false
+MainFrame.BorderSizePixel = 0
 -- Set properties of Title
 Title.Parent = MainFrame
 Title.BackgroundTransparency = 1
 Title.Size = UDim2.new(1, 0, 0, 50)
 Title.Text = "Bubble Gum Simulator Infinity"
-Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextColor3 = Color3.fromRGB(255, 215, 0)
 Title.TextScaled = true
+Title.Font = Enum.Font.GothamBold
 -- Set properties for FunctionList
 FunctionList.Parent = MainFrame
-FunctionList.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FunctionList.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
 FunctionList.Size = UDim2.new(0, 100, 1, 0)
 -- Set properties for TeleportButton
 TeleportButton.Parent = FunctionList
 TeleportButton.Size = UDim2.new(1, 0, 0, 50)
 TeleportButton.Text = "Teleport"
 TeleportButton.BackgroundColor3 = Color3.fromRGB(0, 100, 200)
+TeleportButton.Font = Enum.Font.Gotham
+TeleportButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TeleportButton.BorderSizePixel = 0
 -- Set properties for CloseButton
 CloseButton.Parent = MainFrame
 CloseButton.Size = UDim2.new(0, 100, 0, 50)
 CloseButton.Position = UDim2.new(0.5, -50, 0, 0)
 CloseButton.Text = "Close"
 CloseButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.BorderSizePixel = 0
 -- Set properties for CurrentSection
 CurrentSection.Parent = MainFrame
 CurrentSection.BackgroundTransparency = 1
@@ -53,7 +65,7 @@ CurrentSection.Position = UDim2.new(0.25, 0, 0, 0)
 CurrentSection.Size = UDim2.new(0.75, 0, 1, 0)
 -- Set properties for TeleportFrame
 TeleportFrame.Parent = CurrentSection
-TeleportFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TeleportFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 TeleportFrame.Size = UDim2.new(1, 0, 1, 0)
 TeleportFrame.Visible = false
 -- Island options
@@ -61,11 +73,17 @@ IslandOption1.Parent = TeleportFrame
 IslandOption1.Size = UDim2.new(1, 0, 0, 50)
 IslandOption1.Text = "Teleport to Island 1"
 IslandOption1.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+IslandOption1.Font = Enum.Font.Gotham
+IslandOption1.TextColor3 = Color3.fromRGB(255, 255, 255)
+IslandOption1.BorderSizePixel = 0
 IslandOption2.Parent = TeleportFrame
 IslandOption2.Size = UDim2.new(1, 0, 0, 50)
 IslandOption2.Position = UDim2.new(0, 0, 0.2, 0)
 IslandOption2.Text = "Teleport to Island 2"
 IslandOption2.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+IslandOption2.Font = Enum.Font.Gotham
+IslandOption2.TextColor3 = Color3.fromRGB(255, 255, 255)
+IslandOption2.BorderSizePixel = 0
 -- Toggle the GUI
 ToggleButton.MouseButton1Click:Connect(function()
     MainFrame.Visible = not MainFrame.Visible
