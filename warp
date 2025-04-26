@@ -1,134 +1,34 @@
--- Vortex Script
-local Vortex = {}
-Vortex.Version = "1.0"
-Vortex.Author = "Vortex Team"
--- Load libraries
-local http = game:GetService("HttpService")
-local gui = game:GetService("GuiService")
-local players = game:GetService("Players")
--- Create GUI
-local player = players.LocalPlayer
-local guiFolder = Instance.new("Folder")
-guiFolder.Name = "Vortex GUI"
-guiFolder.Parent = player.PlayerGui
-local mainGui = Instance.new("ScreenGui")
-mainGui.Name = "Main GUI"
-mainGui.Parent = guiFolder
-local background = Instance.new("Frame")
-background.Name = "Background"
-background.Size = UDim2.new(0, 300, 0, 200)
-background.BackgroundTransparency = 0.5
-background.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-background.Parent = mainGui
-local title = Instance.new("TextLabel")
-title.Name = "Title"
-title.Text = "Vortex Script"
-title.TextSize = 24
-title.Font = Enum.Font.SourceSansSemibold
-title.BackgroundTransparency = 1
-title.TextColor3 = Color3.new(1, 1, 1)
-title.Parent = background
--- Create buttons
-local buttonFolder = Instance.new("Folder")
-buttonFolder.Name = "Buttons"
-buttonFolder.Parent = background
-local autoCollectChestsButton = Instance.new("TextButton")
-autoCollectChestsButton.Name = "Auto Collect Chests Button"
-autoCollectChestsButton.Text = "Auto Collect Chests"
-autoCollectChestsButton.Size = UDim2.new(0, 150, 0, 25)
-autoCollectChestsButton.BackgroundTransparency = 0.5
-autoCollectChestsButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-autoCollectChestsButton.Parent = buttonFolder
-local autoGoldenEggButton = Instance.new("TextButton")
-autoGoldenEggButton.Name = "Auto Golden Egg Button"
-autoGoldenEggButton.Text = "Auto Golden Egg"
-autoGoldenEggButton.Size = UDim2.new(0, 150, 0, 25)
-autoGoldenEggButton.BackgroundTransparency = 0.5
-autoGoldenEggButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-autoGoldenEggButton.Parent = buttonFolder
-local unlockAllIslandsButton = Instance.new("TextButton")
-unlockAllIslandsButton.Name = "Unlock All Islands Button"
-unlockAllIslandsButton.Text = "Unlock All Islands"
-unlockAllIslandsButton.Size = UDim2.new(0, 150, 0, 25)
-unlockAllIslandsButton.BackgroundTransparency = 0.5
-unlockAllIslandsButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-unlockAllIslandsButton.Parent = buttonFolder
-local autoBuyAlienShopButton = Instance.new("TextButton")
-autoBuyAlienShopButton.Name = "Auto Buy Alien Shop Button"
-autoBuyAlienShopButton.Text = "Auto Buy Alien Shop"
-autoBuyAlienShopButton.Size = UDim2.new(0, 150, 0, 25)
-autoBuyAlienShopButton.BackgroundTransparency = 0.5
-autoBuyAlienShopButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-autoBuyAlienShopButton.Parent = buttonFolder
-local eggHatcherButton = Instance.new("TextButton")
-eggHatcherButton.Name = "Egg Hatcher Button"
-eggHatcherButton.Text = "Egg Hatcher"
-eggHatcherButton.Size = UDim2.new(0, 150, 0, 25)
-eggHatcherButton.BackgroundTransparency = 0.5
-eggHatcherButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-eggHatcherButton.Parent = buttonFolder
-local autoCoinGemButton = Instance.new("TextButton")
-autoCoinGemButton.Name = "Auto Coin/Gem Button"
-autoCoinGemButton.Text = "Auto Coin/Gem"
-autoCoinGemButton.Size = UDim2.new(0, 150, 0, 25)
-autoCoinGemButton.BackgroundTransparency = 0.5
-autoCoinGemButton.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
-autoCoinGemButton.Parent = buttonFolder
--- Create key system
-local key = "VORTEXKEY123"
-local function checkKey()
-    local userInput = game:GetService("UserInputService"):WaitForUserInputEnum()
-    if userInput == key then
-        print("Key accepted")
-    else
-        print("Invalid key")
-    end
-end
--- Auto Collect Chests
-autoCollectChestsButton.MouseButton1Click:Connect(function()
-    checkKey()
-    if key == "VORTEXKEY123" then
-        -- Code to auto collect chests
-        print("Auto collecting chests...")
-    end
-end)
--- Auto Golden Egg
-autoGoldenEggButton.MouseButton1Click:Connect(function()
-    checkKey()
-    if key == "VORTEXKEY123" then
-        -- Code to auto collect golden eggs
-        print("Auto collecting golden eggs...")
-    end
-end)
--- Unlock All Islands
-unlockAllIslandsButton.MouseButton1Click:Connect(function()
-    checkKey()
-    if key == "VORTEXKEY123" then
-        -- Code to unlock all islands
-        print("Unlocking all islands...")
-    end
-end)
--- Auto Buy Alien Shop
-autoBuyAlienShopButton.MouseButton1Click:Connect(function()
-    checkKey()
-    if key == "VORTEXKEY123" then
-        -- Code to auto buy alien shop
-        print("Auto buying alien shop...")
-    end
-end)
--- Egg Hatcher
-eggHatcherButton.MouseButton1Click:Connect(function()
-    checkKey()
-    if key == "VORTEXKEY123" then
-        -- Code to hatch eggs
-        print("Hatching eggs...")
-    end
-end)
--- Auto Coin/Gem
-autoCoinGemButton.MouseButton1Click:Connect(function()
-    checkKey()
-    if key == "VORTEXKEY123" then
-        -- Code to auto collect coin/gem
-        print("Auto collecting coin/gem...")
-    end
-end)
+-- Create Top Bar
+local topBar = Instance.new("Frame")
+topBar.Size = UDim2.new(0, 600, 0, 30)
+topBar.BackgroundTransparency = 0.5
+topBar.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+topBar.Parent = mainGui
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Text = "arceus x"
+titleLabel.TextSize = 18
+titleLabel.Font = Enum.Font.SourceSansSemibold
+titleLabel.BackgroundColor3 = Color3.new(1, 0.7, 0.7) -- purple-pink font
+titleLabel.Parent = topBar
+local closeButton = Instance.new("TextButton")
+closeButton.Text = "X"
+closeButton.TextSize = 18
+closeButton.Font = Enum.Font.SourceSansSemibold
+closeButton.BackgroundColor3 = Color3.new(1, 1, 1) -- white
+closeButton.Parent = topBar
+-- Create Main Navigation (Left Side)
+local mainNavigation = Instance.new("Frame")
+mainNavigation.Size = UDim2.new(0, 150, 0, 400)
+mainNavigation.BackgroundTransparency = 0.5
+mainNavigation.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+mainNavigation.Parent = mainGui
+local houseIcon = Instance.new("ImageButton")
+houseIcon.Image = "house_icon"
+houseIcon.Size = UDim2.new(0, 30, 0, 30)
+houseIcon.Parent = mainNavigation
+local farmingLabel = Instance.new("TextLabel")
+farmingLabel.Text = "Farming"
+farmingLabel.TextSize = 12
+farmingLabel.Font = Enum.Font.SourceSansSemibold
+farmingLabel.Parent = mainNavigation
+-- ... and so on for the other icons and labels ...
