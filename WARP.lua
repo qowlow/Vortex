@@ -32,14 +32,9 @@ HomeTab:AddParagraph({
     Content = "Welcome to Vortex Hub!"
 })
 
-HomeTab:AddParagraph({
-    Title = "Credits",
-    Content = "" -- Empty content for just the title
-})
-
 HomeTab:AddButton({
-    Title = "TikTok: @vortex.wrap",
-    Description = "Click to copy the TikTok link",
+    Title = "Credits",
+    Description = "TikTok: @vortex.wrap",
     Callback = function()
         Fluent:Notify({
             Title = "TikTok Link",
