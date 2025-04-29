@@ -34,7 +34,7 @@ HomeTab:AddParagraph({
 
 HomeTab:AddParagraph({
     Title = "",
-    Content = "Session Time: 00:08:29\nLua Memory Consumption: 46 MB"
+    Content = "Welcome to Vortex Hub!"
 })
 
 HomeTab:AddParagraph({
