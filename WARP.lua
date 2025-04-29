@@ -19,11 +19,12 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.LeftControl
 })
 
--- Create Tabs
-local HomeTab = Window:AddTab({ Title = "Home", Icon = "rbxassetid://4483362458" })
-local FarmTab = Window:AddTab({ Title = "Farm", Icon = "rbxassetid://4483362458" })
-local HatchTab = Window:AddTab({ Title = "Hatch", Icon = "rbxassetid://4483362458" })
-local TeleportTab = Window:AddTab({ Title = "Teleport", Icon = "rbxassetid://4483362458" })
+-- Create Tabs with Emojis in Titles and No Icons
+local HomeTab = Window:AddTab({ Title = "🏠 Home", Icon = "" })
+local FarmTab = Window:AddTab({ Title = "🌾 Farm", Icon = "" })
+local HatchTab = Window:AddTab({ Title = "🥚 Hatch", Icon = "" })
+local TeleportTab = Window:AddTab({ Title = "🚀 Teleport", Icon = "" })
+local SettingsTab = Window:AddTab({ Title = "⚙️ Settings", Icon = "" })
 
 -- Home Tab Components
 HomeTab:AddParagraph({
@@ -45,7 +46,6 @@ HomeTab:AddButton({
     Title = "TikTok: @vortex.wrap",
     Description = "Click to copy the TikTok link",
     Callback = function()
-        -- Roblox doesn't support direct URL opening, so we'll notify the user with the link
         Fluent:Notify({
             Title = "TikTok Link",
             Content = "TikTok: https://www.tiktok.com/@vortex.wrap\nPlease copy the link to visit!",
@@ -77,8 +77,21 @@ FarmTab:AddToggle("AutoCollectToggle", {
 HatchTab:AddDropdown("EggNameDropdown", {
     Title = "Select Egg to Hatch",
     Description = "Choose an egg for auto-hatching",
-    Values = {"Basic Egg", "Spotted Egg", "Striped Egg", "Volcanic Egg", "Frost Egg", "Event Egg"},
-    Default = "Basic Egg"
+    Values = {
+        "Common Egg",
+        "Spotted Egg",
+        "Iceshard Egg",
+        "Spikey Egg",
+        "Magma Egg",
+        "Crystal Egg",
+        "Lunar Egg",
+        "Void Egg",
+        "Hell Egg",
+        "Nightmare Egg",
+        "Rainbow Egg",
+        "Infinity Egg"
+    },
+    Default = "Common Egg"
 })
 
 HatchTab:AddToggle("AutoHatchToggle", {
@@ -108,6 +121,39 @@ TeleportTab:AddButton({
     Callback = function()
         -- Placeholder for teleportation functionality
     end
+})
+
+TeleportTab:AddButton({
+    Title = "Unlock All Islands",
+    Description = "Unlocks all islands in the game",
+    Callback = function()
+        -- Placeholder for unlock all islands functionality
+    end
+})
+
+-- Settings Tab Components
+SettingsTab:AddToggle("AutoRedeemCodesToggle", {
+    Title = "Auto Redeem All Codes",
+    Description = "Automatically redeems all available codes",
+    Default = false
+})
+
+SettingsTab:AddToggle("DisableCurrencyPopupsToggle", {
+    Title = "Disable Currency Popups",
+    Description = "Disables on-screen currency popups to reduce clutter",
+    Default = false
+})
+
+SettingsTab:AddToggle("DisableItemPopupsToggle", {
+    Title = "Disable Item Popups",
+    Description = "Disables on-screen item popups to reduce clutter",
+    Default = false
+})
+
+SettingsTab:AddToggle("LowGraphicsModeToggle", {
+    Title = "Enable Low Graphics Mode",
+    Description = "Simplifies graphics to improve performance",
+    Default = false
 })
 
 -- Show the Window
