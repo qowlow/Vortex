@@ -11,7 +11,7 @@ local LocalPlayer = Players.LocalPlayer
 -- Create Main Window
 local Window = Fluent:CreateWindow({
     Title = "Vortex Hub | Bubble Gum Simulator Infinity",
-    SubTitle = "Made by Vortex",
+    SubTitle = "V1.0",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
     Acrylic = true,
@@ -29,11 +29,6 @@ local SettingsTab = Window:AddTab({ Title = "⚙️ Settings", Icon = "" })
 -- Home Tab Components
 HomeTab:AddParagraph({
     Title = "Information",
-    Content = "" -- Empty content for just the title
-})
-
-HomeTab:AddParagraph({
-    Title = "",
     Content = "Welcome to Vortex Hub!"
 })
 
